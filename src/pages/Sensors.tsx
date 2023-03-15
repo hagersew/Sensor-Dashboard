@@ -2,14 +2,13 @@ import { useContext, useEffect, useState } from 'react';
 import { SensorsContext } from '../context/SensorsContext';
 import SensorList from '../components/SensorList';
 import { Switch } from 'antd';
+
+const SENSOR_STATE = 'SENSOR_STATE';
+const DARK_MODE_STATE = 'DARK_MODE_STATE';
+
 export default function Sensors() {
   const { sensors = [] } = useContext(SensorsContext);
   const [isSensorConnected, setIsSensorConnected] = useState(false);
-
-  const switchSensor = (checked: boolean) => {
-    setIsSensorConnected(checked);
-  };
-
   const [darkTheme, setDarkTheme] = useState(false);
 
   useEffect(() => {
@@ -19,12 +18,22 @@ export default function Sensors() {
       document.querySelector('html')?.classList.remove('dark');
     }
 
-    setDarkTheme(JSON.parse(localStorage.getItem('DarkMode')!));
+    setDarkTheme(JSON.parse(localStorage.getItem(DARK_MODE_STATE)!));
   }, [darkTheme]);
+
+  useEffect(() => {
+    setIsSensorConnected(JSON.parse(localStorage.getItem(SENSOR_STATE)!));
+  }, []);
 
   const setDarkMode = (darkMode: boolean) => {
     setDarkTheme(darkMode);
-    localStorage.setItem('DarkMode', darkMode.toString()!);
+    localStorage.setItem(DARK_MODE_STATE, darkMode.toString()!);
+  };
+
+  const switchSensor = (checked: boolean) => {
+    setIsSensorConnected(checked);
+
+    localStorage.setItem(SENSOR_STATE, checked.toString()!);
   };
 
   return (
@@ -34,7 +43,11 @@ export default function Sensors() {
       <div className="flex justify-end shadow-xl space-x-8 mt-10 mr-10">
         <div className="flex justify-items-center mb-4">
           <p className="font-thin mr-4">Show Connected Sensors</p>
-          <Switch className="bg-zinc-500" onChange={switchSensor}></Switch>
+          <Switch
+            className="bg-zinc-500"
+            checked={isSensorConnected}
+            onChange={switchSensor}
+          ></Switch>
         </div>
         <div className="flex justify-items-center mb-4">
           <p className="font-thin mr-4">Dark Mode</p>
