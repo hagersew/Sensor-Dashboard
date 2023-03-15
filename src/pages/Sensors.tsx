@@ -18,7 +18,15 @@ export default function Sensors() {
     } else {
       document.querySelector('html')?.classList.remove('dark');
     }
+
+    setDarkTheme(JSON.parse(localStorage.getItem('DarkMode')!));
   }, [darkTheme]);
+
+  const setDarkMode = (darkMode: boolean) => {
+    setDarkTheme(darkMode);
+    if (darkMode !== null)
+      localStorage.setItem('DarkMode', darkMode.toString());
+  };
 
   return (
     <main className="flex flex-col h-screen dark:bg-gray-700 dark:text-white">
@@ -34,7 +42,7 @@ export default function Sensors() {
           <Switch
             className="bg-zinc-500"
             checked={darkTheme}
-            onClick={() => setDarkTheme(!darkTheme)}
+            onClick={() => setDarkMode(!darkTheme)}
           ></Switch>
         </div>
       </div>
