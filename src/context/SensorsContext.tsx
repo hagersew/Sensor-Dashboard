@@ -2,7 +2,7 @@ import { createContext, useState } from 'react';
 import { Sensor } from '../types/Sensor';
 import useWebSocket from 'react-use-websocket';
 
-const url = process.env.WS_API || 'ws://localhost:5000';
+const url = process.env.WS_API || 'ws://localhost:5001';
 
 interface ISensorsContext {
   sensors?: Sensor[];
