@@ -2,6 +2,7 @@
 
 **SensorDashboardApp** displays real-time data from sensors connected to a system. It provides insight into the status of the system by collecting, organizing and presenting sensor information in an easy-to-understand format. Sensor dashboards can be used for monitoring, control and monitoring of Temperature, Humidity, Wind, PM10, PM2.5, and Pressure.
 
+<img src="./sensor-dashboard.gif">
 ## Available Scripts
 
 In the project directory, you can run:
