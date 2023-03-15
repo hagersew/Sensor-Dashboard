@@ -1,6 +1,6 @@
 import { Sensor } from '../types/Sensor';
 import SensorCard from './SensorCard';
-// import emptyState from '../assets/images/EmptyState.png';
+import emptyState from '../assets/images/EmptyState.png';
 interface SensorListProps {
   sensors: Sensor[];
 }
@@ -16,10 +16,8 @@ export default function SensorList({ sensors }: SensorListProps) {
         </div>
       ) : (
         <div className="flex items-center flex-col">
-          {/* <img src={`${emptyState}`} alt="No Sensors Found" /> */}
-          {/* <p className="text-2xl font-thin"> */}
-          {/* No connected sensor found */}
-          {/* </p> */}
+          <img src={`${emptyState}`} alt="No Sensors Found" />
+          <p className="text-2xl font-thin">No connected sensor found</p>
         </div>
       )}
     </div>
