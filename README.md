@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# SensorDashboardApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**SensorDashboardApp** displays real-time data from sensors connected to a system. It provides insight into the status of the system by collecting, organizing and presenting sensor information in an easy-to-understand format. Sensor dashboards can be used for monitoring, control and monitoring of Temperature, Humidity, Wind, PM10, PM2.5, and Pressure.
 
 ## Available Scripts
 
@@ -39,8 +39,8 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `npm run storybook`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Launches the storybook.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[deployment](http://localhost:6006/).
