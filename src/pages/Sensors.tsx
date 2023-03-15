@@ -24,8 +24,7 @@ export default function Sensors() {
 
   const setDarkMode = (darkMode: boolean) => {
     setDarkTheme(darkMode);
-    if (darkMode !== null)
-      localStorage.setItem('DarkMode', darkMode.toString());
+    localStorage.setItem('DarkMode', darkMode.toString()!);
   };
 
   return (
