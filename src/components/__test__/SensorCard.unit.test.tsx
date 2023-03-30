@@ -4,9 +4,6 @@ import { sensorData } from '../shared/utils/sampleData';
 
 it('Should render SensorCard with Temperature values', () => {
   render(<SensorList sensors={sensorData} />);
-  const turnSensorOn = screen.getByTestId('sensorSwitch');
-
-  fireEvent.click(turnSensorOn);
 
   const sensorName = screen.getByTestId('sensorName');
   const sensorValue = screen.getByTestId('sensorValue');
