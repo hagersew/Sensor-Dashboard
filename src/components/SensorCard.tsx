@@ -10,12 +10,6 @@ interface SensorCardProps {
 export default function SensorCard({ sensor }: SensorCardProps) {
   const { connectSensor, disconnectSensor } = useContext(SensorsContext);
 
-  useEffect(() => {
-    if (sensor.value == null) {
-      return;
-    }
-  });
-
   const sensorSwitch = (checked: boolean) => {
     checked ? connectSensor(sensor?.id) : disconnectSensor(sensor?.id);
   };
